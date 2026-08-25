@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Uptime Monitor</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+            <span class="logo-icon">⚡</span>
+            Uptime Monitor
+        </div>
+
+        <button class="add-button" onclick="openAddMonitor()">
+            + Add Monitor
+        </button>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+
+            <div>
+                <h1>Monitors</h1>
+
+                <p>
+                    Keep an eye on your websites and services.
+                </p>
+            </div>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <span id="total-monitors">0</span>
+                    <small>Total</small>
+                </div>
+
+                <div class="stat">
+                    <span id="up-monitors">0</span>
+                    <small>Up</small>
+                </div>
+
+                <div class="stat">
+                    <span id="down-monitors">0</span>
+                    <small>Down</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="monitors-container" class="monitors">
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    📡
+                </div>
+
+                <h2>No monitors yet</h2>
+
+                <p>
+                    Add your first monitor to start tracking uptime.
+                </p>
+
+                <button
+                    class="primary-button"
+                    onclick="openAddMonitor()"
+                >
+                    + Add Monitor
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Add Monitor Modal -->
+
+    <div id="modal" class="modal hidden">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2>Add Monitor</h2>
+
+                <button
+                    class="close-button"
+                    onclick="closeAddMonitor()"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="monitor-form">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Name
+                    </label>
+
+                    <input
+                        id="name"
+                        type="text"
+                        placeholder="Google"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="url">
+                        URL
+                    </label>
+
+                    <input
+                        id="url"
+                        type="url"
+                        placeholder="https://google.com"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="interval">
+                        Check Interval
+                    </label>
+
+                    <select id="interval">
+
+                        <option value="30">
+                            30 seconds
+                        </option>
+
+                        <option value="60">
+                            1 minute
+                        </option>
+
+                        <option value="300">
+                            5 minutes
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div id="form-error" class="form-error"></div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        onclick="closeAddMonitor()"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Add Monitor
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
